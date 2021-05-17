@@ -65,16 +65,19 @@ function createSaveCard(searchElem) {
     const owner = document.createElement('p');
     owner.textContent = `Owner: ${searchElem.owner.login}`;
     const stars = document.createElement('p');
+    const btn = document.createElement('button');
     stars.textContent = `Stars: ${searchElem.stargazers_count}`;
     const pic = document.createElement("IMG");
     pic.src = "img/Group1.png";
     pic.classList.add('pic');
     pic.addEventListener("click", () => card.remove());
     saveCard.appendChild(card);
+    card.appendChild(btn);
+    btn.appendChild(pic);
     card.appendChild(name);
     card.appendChild(owner);
     card.appendChild(stars);
-    card.appendChild(pic);
+    card.appendChild(btn);
 }
 
 search.addEventListener("keyup", debounce(searchRepositories, 350));
